@@ -1,0 +1,19 @@
+
+
+PigeonHole_Principle:
+    Simply it states that with 'n' objects to put into 'm' places, where n>m, then one of the place must have more than one elements.
+    Inversely if n<m and all places must be filled than it is guaranteed that one or more element will be in more than one place.
+
+    This principle can be used to check uniqueness among other things(I'll add them when I discover).
+    For Eg: If you have to check that a string has all unique characters(a-z).
+        then u can check whether the string has length more than 26 as a filter condition before running the algorithm.
+        If the string is more than 26 chars long then it is guaranteed that it will not be unique.
+
+        /* Assumes only letters a through z. */
+        	public static boolean isUniqueChars(String str) {
+                    if (str.length() > 26)
+                    {
+                     // Only 26 characters
+                        return false;
+                    }
+        		}

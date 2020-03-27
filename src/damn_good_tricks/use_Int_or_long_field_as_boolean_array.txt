@@ -1,0 +1,20 @@
+
+This trick is useful to check the uniqueness of a random collection(Strings,arrays) of elements from a set(i.e a collection with unique elements)
+with a unique associated value for each element.
+For Eg: Alphabets each elements are distinct and have a unique ASCII value associated.
+
+Now to use an int field as boolean array, we need an int field let's call it checker.
+
+Now choose one of the element(usually the first) within the set as a default.
+ In case of alphabets we use 'a' now for each element from the input subtract the default value from it and store it into a value.
+ For Eg: "hello" for each char we sub 'a' from it, i.e 'h'-'a'.
+ This gives a unique value for every char and same value for same char.
+
+ Now right shift 1 with the obtained value and check it against the checker field by logically AND ing them to check if it is greater than 0
+ if it's > 0 then this char was already encountered and hence return false
+
+ else Logically OR the 1<<value with the checker element.
+
+ This will register 1 in the binary.
+
+See arrays_and_strings\IsUnique.java within this repo for example
