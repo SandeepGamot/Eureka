@@ -1,5 +1,5 @@
 package arrays_and_strings;
-
+import java.util.HashMap;
 public class CheckPermutation
 {
   /*
@@ -10,28 +10,42 @@ public class CheckPermutation
    *              Time: O(N logN)
    *              Space: O(1)
    *
-   * Better : Maintain an int sum,
-   *          for each char in str1 add it to the sum
-   *          simultaneously for each char in str2 subtract it from the sum
-   *
-   * return true if sum==0 else false
+   * Better : Maintain an Char Integer Map,
+   *          for each char in str1 add it to the map and maintain it's count.
+   *          simultaneously for each char in str2 subtract it from the count in the map.
    * */
   
-  public static boolean checkPerm(String s1, String s2)
+  public static boolean checkPerm(String s, String t)
   {
-    if (s1 == null || s2 == null)
+    if (s == null || t == null)
       return false;
-    if (s1.length() != s2.length())
+    if (s.length() != t.length())
       return false;
     
-    int sum = 0;
+    HashMap<Character, Integer> map = new HashMap<>();
     
-    for (int i = 0; i < s1.length(); i++)
+    for (char c : s.toCharArray())
     {
-      sum += (int) s1.charAt(i);
-      sum -= (int) s2.charAt(i);
+      if (map.containsKey(c))
+      {
+        int count = map.get(c);
+        
+        map.replace(c, ++count);
+      } else
+        map.put(c, 1);
     }
     
-    return sum == 0;
+    for (char c : t.toCharArray())
+    {
+      if (!map.containsKey(c))
+        return false;
+      
+      int count = map.get(c);
+      if (count <= 0)
+        return false;
+      map.replace(c, --count);
+    }
+    
+    return true;
   }
 }
