@@ -1,0 +1,12 @@
+
+-------------------------------------------------
+* XOR ing to remove pairs
+        A basic truth about XOR is that if u XOR 2 numbers the result is always 0.
+        So if the problem requires to remove pairs or find a number that is not in a pair.
+        You can have an int field that serves as the memory to store the bits.
+        And for every num in array or stream just XOR them with the int field this will remove all the numbers that are in pairs,
+        this works when there is only one number to find or addition of all the single numbers. Not to point out the location.
+        Basically anything to do with pairs in O(1) space complexity this might be one of the tricks to try.
+
+        See : arrays_and_strings\SingleNumberInArray.java
+___________________________________________________
